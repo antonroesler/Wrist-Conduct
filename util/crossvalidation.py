@@ -33,15 +33,21 @@ def cross_test_subject(data, P:int, N=1, negative_size=24):
     
     # Collect negative data
     other_data = []
-    def fill_other(other_data):
-        while len(other_data) < N*negative_size:
-            for key in data.keys():
+
+    for key in data.keys():
                 if key != "P"+str(P):
                     other_data += data.get(key)
+
+    random.shuffle(other_data)
+    
+    def fill_other(other_data):
+        while len(other_data) < N*negative_size:
+            other_data += other_data
+            
     fill_other(other_data)
     negative_data = []
 
-    random.shuffle(other_data)
+    
     for i in range(N): 
         negative_data.append(other_data[i*negative_size : (1+i)*negative_size])
     return target_data, negative_data
