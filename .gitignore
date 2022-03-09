@@ -4,7 +4,6 @@
 */.DS_Store
 data/.DS_Store
 /whitenoise
-/raw
 /data
 *.png
 __pycache__
