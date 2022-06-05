@@ -1,0 +1,1 @@
+packed_value = struct.pack('h', random.randint(-32767, 32767))
